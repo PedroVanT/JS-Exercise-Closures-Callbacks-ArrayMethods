@@ -30,37 +30,52 @@ function processFirstItem(stringList, callback) {
  * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ * counter2, because it is referencing a variable declared before the function
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
 */
 
-// counter1 code
-function counterMaker() {
-  let count = 0;
-  return function counter() {
-    count++;
-  }
-}
 
-const counter1 = counterMaker();
 
-// counter2 code
-let count = 0;
 
-function counter2() {
-  return count++;
-}
+// // counter1 code
+// function counterMaker() {
+//   let count = 0;
+//   return function counter() {
+//     count++;
+//   }
+// }
+
+// const counter1 = counterMaker();
+
+// // counter2 code
+// let count = 0;
+
+// function counter2() {
+//   return count++;
+// }
+
+
 
 
 /* Task 2: inning() 
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
 
-    /*Code Here*/
 
+
+
+function inning(min, max){
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
+console.log(inning(0,2));
+
+
+
+
+
 
 /* Task 3: finalScore()
 
@@ -76,9 +91,13 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+const team1 = 'Home';
+const team2 = 'Away';
 
-  /*Code Here*/
+
+function finalScore(inningNumber, cbInning){
+
+  return operate()
 
 }
 
