@@ -42,6 +42,9 @@ Find the file `index.js` and complete the tasks until your tests are passing.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+closure is basically when there is a scope inside another scope, and the scope on the inside can access things from the bigger scope.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +66,17 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+when you invoke function personalDice and put one of those const's declared outside of the function as the arguements, the the function inserts it in the console log on line 55 where the parameter 'name' is and it knows what you are referring to.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+His name will always be the same, but he will roll a different number
+
 c. What is the lexical scope of `newRoll`? 
+
+function personalDice
+
 
 ### Task 3 - Stretch Goals
 

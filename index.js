@@ -28,11 +28,18 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * 
+ * 
  * 2. Which of the two uses a closure? How can you tell?
+ * 
+ * counter2, because it is referencing a variable declared before the function
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
 */
+
+
+
 
 // counter1 code
 function counterMaker() {
@@ -52,15 +59,21 @@ function counter2() {
 }
 
 
+
+
 /* Task 2: inning() 
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
 
-    /*Code Here*/
+function inning(){
+
+let points = Math.floor(Math.random() * 3);
+return points;
 
 }
+console.log(inning(0, 2));
+
 
 /* Task 3: finalScore()
 
@@ -76,11 +89,22 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
 
-  /*Code Here*/
 
+function finalScore (cb, innings) {
+
+    let score = {"Home": 0, "Away": 0};
+    for (i = 0; i < innings; i++) {
+      score.Home += cb();
+      score.Away += cb();
+    }
+    return score;
+    
 }
+finalScore(inning, 9);
+
+
+
 
 /* Task 4: 
 
@@ -104,8 +128,23 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+
+// home += inning means home = home + inning
+
+let homeScore = 0;
+let awayScore = 0;
+
+function getInningScore(cb, i) {
+  let inningScore = `${i}th inning: ${awayScore += cb()} - ${homeScore += cb()}`;
+  return inningScore;
+}
+
+function scoreboard(cb1, cb2, innings){
+  for (let i = 1; i <= innings; i++) {
+    console.log(cb1(cb2, i));
+  }
+  return `Final Score: ${awayScore} - ${homeScore}`;
 }
 
 
+console.log(scoreboard(getInningScore, inning, 9));
